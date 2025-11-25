@@ -39,6 +39,7 @@ console.log(lastPost);
 // lastPost.then((last) => console.log(last));
 */
 
+/*
 const ShoppingCart2 = (function () {
   const cart = [];
   const shoppingCost = 10;
@@ -70,3 +71,17 @@ ShoppingCart2.addToCart("kiwi", 4);
 ShoppingCart2.addToCart("pear", 2);
 console.log(ShoppingCart2);
 console.log(ShoppingCart2.shoppingCost); // undefined
+*/
+
+// CommonJS Module (used in Node.js - not in browsers)
+// export
+export.addToCart=function (product, quantity) {
+    cart.push({ product, quantity });
+    console.log(
+      `${quantity} ${product}(s) added to cart. Total cost: $${
+        quantity * shoppingCost
+      }`
+    )}
+
+// import
+const {addToCart}=require('./shoppingCart.js')
