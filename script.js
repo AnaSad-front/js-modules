@@ -19,3 +19,21 @@ add("grape", 7);
 add("mango", 1);
 
 console.log(cart);
+
+// console.log("start fetching");
+// const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+// const data = await res.json();
+// console.log(data);
+// console.log("something");
+
+const getLastPost = async function () {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await res.json();
+  return { title: data.at(-1).title, text: data.at(-1).body };
+};
+
+const lastPost = await getLastPost(); // top-level await
+console.log(lastPost);
+
+// Not very clean
+// lastPost.then((last) => console.log(last));
