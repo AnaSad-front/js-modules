@@ -4,14 +4,14 @@
 // addToCart("pizza", 2);
 // console.log(price, tq);
 
-console.log("Importing module");
+// console.log("Importing module");
 // console.log(shoppingCost); // This will cause an error because shoppingCost is not exported
 
 // import * as ShoppingCart from "./shoppingCart.js"; // Importing everything from the module
 // ShoppingCart.addToCart("banana", 5);
 // console.log(ShoppingCart.totalPrice);
 // console.log(ShoppingCart.tq);
-/*
+
 // import add, { addToCart, totalPrice as price, tq } from "./shoppingCart.js";
 import add, { cart } from "./shoppingCart.js"; // Importing the default export
 add("orange", 3);
@@ -20,6 +20,7 @@ add("mango", 1);
 
 console.log(cart);
 
+/*
 // console.log("start fetching");
 // const res = await fetch("https://jsonplaceholder.typicode.com/posts");
 // const data = await res.json();
@@ -88,7 +89,8 @@ export.addToCart=function (product, quantity) {
 const {addToCart}=require('./shoppingCart.js')
 */
 
-import cloneDeep from "./node_modules/lodash-es/cloneDeep.js";
+// import cloneDeep from "./node_modules/lodash-es/cloneDeep.js";
+import cloneDeep from "lodash-es";
 
 const state = {
   cart: [
@@ -105,3 +107,8 @@ state.user.loggedIn = false;
 console.log(stateClone);
 
 console.log(stateDeepClone);
+
+// Hot Module Replacement (HMR) - for development purposes
+if (module.hot) {
+  module.hot.accept();
+}
