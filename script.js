@@ -11,7 +11,7 @@ console.log("Importing module");
 // ShoppingCart.addToCart("banana", 5);
 // console.log(ShoppingCart.totalPrice);
 // console.log(ShoppingCart.tq);
-
+/*
 // import add, { addToCart, totalPrice as price, tq } from "./shoppingCart.js";
 import add, { cart } from "./shoppingCart.js"; // Importing the default export
 add("orange", 3);
@@ -37,3 +37,36 @@ console.log(lastPost);
 
 // Not very clean
 // lastPost.then((last) => console.log(last));
+*/
+
+const ShoppingCart2 = (function () {
+  const cart = [];
+  const shoppingCost = 10;
+  const totalPrice = 237;
+  const totalQuantity = 23;
+
+  const addToCart = function (product, quantity) {
+    cart.push({ product, quantity });
+    console.log(
+      `${quantity} ${product}(s) added to cart. Total cost: $${
+        quantity * shoppingCost
+      }`
+    );
+  };
+
+  const orderStock = function (product, quantity) {
+    console.log(`${quantity} ${product}(s) ordered from supplier`);
+  };
+
+  return {
+    addToCart,
+    cart,
+    totalPrice,
+    totalQuantity,
+  };
+})();
+
+ShoppingCart2.addToCart("kiwi", 4);
+ShoppingCart2.addToCart("pear", 2);
+console.log(ShoppingCart2);
+console.log(ShoppingCart2.shoppingCost); // undefined
